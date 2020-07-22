@@ -3,7 +3,6 @@ pipeline {
         docker {
             image 'node:6-alpine'
             args '-p 3000:3000'
-            label 'docker-node'
             registryUrl 'https://192.168.1.7:3000/'
         }
     }
