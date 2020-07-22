@@ -33,6 +33,6 @@ echo 'Visit http://'$HOSTNAMELOCAL':3000 to see your Node.js/React application i
 echo '(This is why you specified the "args ''-p 3000:3000''" parameter when you'
 echo 'created your initial Pipeline as a Jenkinsfile.)'
 
-echo '#HOSTNAME: http://'$HOSTNAME':3000'>> output.txt
+echo '#HOSTNAME: http://'$HOSTNAMELOCAL':3000'>> output.txt
 
 
