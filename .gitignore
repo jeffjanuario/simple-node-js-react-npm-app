@@ -57,3 +57,10 @@ typings/
 
 # dotenv environment variables file
 .env
+.pidfile
+output.txt
+package-lock.json
+
+
+node_modules/
+build/
