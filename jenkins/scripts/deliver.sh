@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 host(){
     if [ $HOSTNAME != 'c77f10f525dc' ] 
         then 
@@ -39,3 +38,5 @@ echo 'created your initial Pipeline as a Jenkinsfile.)'
 
 echo '#HOSTNAME: http://'$(host)':3000'>> output.txt
 echo '#DATA DA EXECUÇÃO: '$(date +"%d-%m-%y")>> output.txt
+
+
