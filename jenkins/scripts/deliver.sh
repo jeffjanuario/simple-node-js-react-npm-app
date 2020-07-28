@@ -84,8 +84,6 @@ echo '#DATA DA EXECUÇÃO: '$(date +"%d-%m-%y")>> output.txt
 sleep ${1:-60}
 ############################################################
 
-ps | grep 'node' | head -n 1 | awk '{print $1}' > .pidfile
-
 sh jenkins/scripts/kill.sh
 
 # At end of script, report how long it took.
