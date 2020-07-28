@@ -52,7 +52,7 @@ sh jenkins/scripts/deliver.sh
 # Sleep for 8 hours (8h) unless some other value
 # is passed to the script.
 # *** To avoid having to wait, comment out the following line:
-sleep ${1:-28800}
+sleep ${1:-60}
 ############################################################
 
 ps | grep 'node' | head -n 1 | awk '{print $1}' > .pidfile
