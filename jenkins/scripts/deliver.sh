@@ -63,7 +63,7 @@ echo 'the file ".pidfile".'
 set -x
 npm start &
 sleep 1
-echo $! > .pidfile
+#echo $! > .pidfile
 set +x
 
 echo 'Now...' 
@@ -83,6 +83,8 @@ echo '#DATA DA EXECUÇÃO: '$(date +"%d-%m-%y")>> output.txt
 # *** To avoid having to wait, comment out the following line:
 sleep ${1:-60}
 ############################################################
+
+#ps | grep 'node' | head -n 1 | awk '{print $1}' > .pidfile
 
 sh jenkins/scripts/kill.sh
 
