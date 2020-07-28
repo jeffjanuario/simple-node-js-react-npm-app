@@ -45,7 +45,7 @@ sh jenkins/scripts/deliver.sh
 
 
 
-#!/bin/bash
+
 ############################################################
 # Main script - could be anything, but takes a
 # non-predictable amount of time.
