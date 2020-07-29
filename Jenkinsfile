@@ -22,10 +22,12 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
-                def userInput
-                timeout(time: 10, unit: 'SECONDS') {
-                    userInput = input id: 'messageDeliver', message: 'Finished using the web site? (Click "Proceed" to continue)?', ok: 'Yes', 
-                    parameters: [string(defaultValue: 'yes', description: '', name = ''), string(defaultValue: '', description: '', name: '')]
+                script {
+                    def userInput
+                    timeout(time: 10, unit: 'SECONDS') {
+                        userInput = input id: 'messageDeliver', message: 'Finished using the web site? (Click "Proceed" to continue)?', ok: 'Yes', 
+                        parameters: [string(defaultValue: 'yes', description: '', name = ''), string(defaultValue: '', description: '', name: '')]
+                    }
                 }
                 sh './jenkins/scripts/kill.sh' 
             }
