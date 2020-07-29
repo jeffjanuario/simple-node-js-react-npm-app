@@ -24,6 +24,7 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh' 
                 timeout(time: 60, unit: 'SECONDS') {
                     input message: 'Finished using the web site? (Click "Proceed" to continue)', ok: 'Yes' 
+                    sh './jenkins/scripts/kill.sh' 
                 }
                 sh './jenkins/scripts/kill.sh' 
             }
