@@ -22,15 +22,22 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
-                script {
-                   def userInput
-                    timeout(time: 60, unit: 'SECONDS') {
-                        println 'Waiting for input'
-                        userInput = input id: 'CustomId', message: 'Want to continue?', ok: 'Yes', parameters: [string(defaultValue: 'world', description: '', name: 'hello'), string(defaultValue: '', description: '', name: 'token')]
-                    }
-                }
-                sh './jenkins/scripts/kill.sh' 
+               
             }
+        }
+        stage ('Wait') {
+            options {
+                timeout(time: 3, unit: "SECONDS")
+            }
+            steps {
+                input message: 'Finished using the web site? (Click "Proceed" to continue)', ok: 'Yes' 
+                catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') { 
+                    echo "Started stage wait"
+                }
+            }
+        }
+        stage ('Kill'){
+            sh './jenkins/scripts/kill.sh' 
         }
     }
 }
