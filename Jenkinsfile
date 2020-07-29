@@ -23,10 +23,10 @@ pipeline {
             steps {
                 sh './jenkins/scripts/deliver.sh' 
                 script {
-                    def userInput
+                   def userInput
                     timeout(time: 10, unit: 'SECONDS') {
-                        userInput = input id: 'messageDeliver', message: 'Finished using the web site? (Click "Proceed" to continue)?', ok: 'Yes', 
-                        parameters: [string(defaultValue: 'yes', description: 'teste', name = 'messageD'), string(defaultValue: '', description: '', name: '')]
+                        println 'Waiting for input'
+                        userInput = input id: 'CustomId', message: 'Want to continue?', ok: 'Yes', parameters: [string(defaultValue: 'world', description: '', name: 'hello'), string(defaultValue: '', description: '', name: 'token')]
                     }
                 }
                 sh './jenkins/scripts/kill.sh' 
