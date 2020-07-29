@@ -30,7 +30,7 @@ pipeline {
             }
             steps {
                 input message: 'Finished using the web site? (Click "Proceed" to continue)', ok: 'Yes' 
-                catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') { 
+                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') { 
                     echo "Started stage wait"
                 }
             }
