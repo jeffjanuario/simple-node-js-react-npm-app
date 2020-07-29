@@ -22,7 +22,6 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
-               
             }
         }
         stage ('Wait') {
@@ -37,7 +36,9 @@ pipeline {
             }
         }
         stage ('Kill'){
-            sh './jenkins/scripts/kill.sh' 
+            steps {
+                sh './jenkins/scripts/kill.sh' 
+            }
         }
     }
 }
